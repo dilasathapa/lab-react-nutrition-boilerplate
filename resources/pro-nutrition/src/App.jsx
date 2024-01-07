@@ -5,6 +5,7 @@ import Search from './Component/Search'
 import FoodData from "./../../FoodData.js"
 
 
+
 function App() {
 
   const [search, setSearch] = useState("");
