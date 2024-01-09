@@ -1,42 +1,34 @@
-import { useState } from 'react'
-import './App.css'
-import FoodBox from './Component/FoodBox'
-import Search from './Component/Search'
-import FoodData from "./../../FoodData.js"
+import React from "react";
+import { useState } from "react";
+import FoodData from "../../FoodData";
+import Search from "./Component/Search";
+import FoodBox from "./Component/FoodBox";
 
+function App(){
+  const [search, setSearch] = useState("")
 
-
-function App() {
-
-  const [search, setSearch] = useState("");
-  console.log("foodData", FoodData);
-
-  const filteredFoodData = FoodData.filter((e)=>{
-    return (
-      e.name.toLowerCase().includes(search.toLowerCase())
-    )
+  const filteredSearch = FoodData.filter((e)=>{
+    return e.name.toLowerCase().includes(search.toLowerCase())
   })
+
 
 
   return (
     <>
-      <div>
-        <h1>Pro-Nutrition App</h1>
-        <Search setSearch={setSearch} />
-        {
-          filteredFoodData.length <= 0 ? (
-            <>
-            <h1>No matching fooditem</h1>
-            </>
-          ) : (
-            filteredFoodData.map((e, i)=>(
-              <FoodBox key={i} data={e} index={i} />
-            ))
-          )
-        }
-      </div>
+      <h1>Pro-nutrition App</h1>
+      <Search setSearch = {setSearch}/>
+      {
+        filteredSearch.length <= 0 ? (
+          <h3>No data found</h3>
+        ) : (
+          filteredSearch.map((e, i)=>(
+             <FoodBox key={i} ele = {e} index= {i} />
+          ))
+        )
+      }
+
     </>
   )
 }
 
-export default App
+export default App;

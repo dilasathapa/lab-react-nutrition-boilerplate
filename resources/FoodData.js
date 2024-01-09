@@ -7,7 +7,7 @@ export default [{
 {
   id:1,
   img:"https://s3.ap-south-1.amazonaws.com/kalvi-education.github.io/applie-react.jpeg",
-  name:"apple",
+  name:"Apple", 
   cal:52,
 },
 {

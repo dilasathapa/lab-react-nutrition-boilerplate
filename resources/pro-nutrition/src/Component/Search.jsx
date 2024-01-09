@@ -1,18 +1,15 @@
 import React from "react";
 
 function Search(props){
-    const {setSearch} = props;
+    let{setSearch} = props;
     return (
         <>
-            <h1>Search</h1>
-            <input 
-            type="text"
-            placeholder="search for food here"
-            onChange={(e)=>{
-                setSearch(e.target.value)
-            }}
-            
+            <h1>Search Anything here...</h1>
+            <input type="text" 
+            placeholder="type anything here..."
+            onChange={(e)=>{setSearch(e.target.value)}}
             />
+        
         </>
     )
 }

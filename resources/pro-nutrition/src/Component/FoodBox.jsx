@@ -1,40 +1,35 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
-const FoodBox = (props) => {
-    let { data, index } = props;
-    let { cal, id, img, name } = data;
+function FoodBox(props){
+    let{ele, index} = props;
+    let {img, name, cal} = ele;
 
-    let [input, setInput] = useState(0);
-    let [quantity, setQuantity] = useState(0);
+    const [input, setInput] = useState(0);
+    const [quantity, setQuantity] = useState(0)
 
-    function quantityhandler() {
+    function quantityHandler(){
         setQuantity(input)
     }
-
     return (
         <>
             <div>
-                <img src={img} alt="calpic" />
+                <img src={img} alt="itempic" />
                 <div>
                     <span>{name}</span>
                     <span>{cal}</span>
                 </div>
-                <div>
-                    <input type="number" min="0"
-                        onChange={(e) => { setInput(e.target.value) }}
-                        value={input}
-                    />
-                    <button onClick={quantityhandler}>+</button>
-                </div>
-                <h3>{name} X {quantity} = {cal * quantity} calories</h3>
-                <button
-                    onClick={() => {
-                        setQuantity(0)
-                        setInput(0)
-                    }}
-                >reset</button>
+                <input type="number" 
+                    onChange={(e)=>{setInput(e.target.value)}}
+                    value={input}
+                />
+                <button onClick={quantityHandler}>+</button>
+                <p>{quantity} {name} = {cal*quantity} calories</p>
+                <button onClick={()=>{
+                    setInput(0)
+                    setQuantity(0)
+                }}>reset</button>
             </div>
+        
         </>
     )
 }
